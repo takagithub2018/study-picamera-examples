@@ -22,6 +22,7 @@ net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
         
 
 def upload():
+    print('this is upload')
     image = { 'file': open('hello.jpg', 'rb') }
     payload = {
         'filename': 'hello.jpg',
