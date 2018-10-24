@@ -19,6 +19,15 @@ try:
 except KeyError as e:
     sys.exit('Couldn\'t find env: {}'.format(e))
 
+def upload():
+    image = { 'file': open('hello.jpg', 'rb') }
+    payload = {
+        'filename': 'hello.jpg',
+        'token': SLACK_TOKEN,
+        'channels': [SLACK_CHANNEL],
+    }
+    requests.post(SLACK_URL, params=payload, files=image)
+
 class PersonDetector(object):
         
     def __init__(self, flip = True):
@@ -76,12 +85,3 @@ class PersonDetector(object):
                 self.last_upload = time.time()
  
         return frame
-
-    def upload():
-        image = { 'file': open('hello.jpg', 'rb') }
-        payload = {
-            'filename': 'hello.jpg',
-            'token': SLACK_TOKEN,
-            'channels': [SLACK_CHANNEL],
-        }
-        requests.post(SLACK_URL, params=payload, files=image)
