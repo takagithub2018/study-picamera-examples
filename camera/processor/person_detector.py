@@ -29,6 +29,7 @@ def upload():
     }
     r=requests.post(SLACK_URL, params=payload, files=image)
     print("r.status_code=" + str(r.status_code))
+    print("r.text=" + r.text) 
 
 class PersonDetector(object):
         
