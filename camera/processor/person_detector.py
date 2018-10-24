@@ -20,6 +20,7 @@ except KeyError as e:
     sys.exit('Couldn\'t find env: {}'.format(e))
 
 def upload():
+    print('this is upload')
     image = { 'file': open('hello.jpg', 'rb') }
     payload = {
         'filename': 'hello.jpg',
